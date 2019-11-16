@@ -2,15 +2,13 @@
 {
     public class MessageService : IMessageService
     {
-        private const string OldValue = "Hello OLD";
-        private const string NewValue = "Hello NEW";
         private const int VersionThreshold = 3;
 
         public string GetWelcomeMessage(int platformId, string platformType, int appVersion)
         {
             if (platformType == "SpecialDevice" && appVersion == 1 && (platformId == 1 || platformId == 2))
             {
-                return OldValue;
+                return Messages.OldValue;
             }
 
             var showNew = false;
@@ -26,7 +24,7 @@
                     break;
 
                 case 3:
-                    return OldValue;
+                    return Messages.OldValue;
 
                 case 4:
                     showNew = true;
@@ -37,11 +35,11 @@
             {
                 if (appVersion < VersionThreshold)
                 {
-                    return OldValue;
+                    return Messages.OldValue;
                 }
                 else
                 {
-                    return NewValue;
+                    return Messages.NewValue;
                 }
             }
 
